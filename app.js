@@ -1,3 +1,10 @@
+const SUPABASE_URL = "https://vfkxtnlzbligismjeulr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "WKLEJ_TUTAJ_SWÓJ_KLUCZ";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
 const offers = [
  {id:"game", category:"games", icon:"🎮", title:"Przetestuj grę", description:"Przejdź poziom w przykładowej grze demonstracyjnej.", reward:120, tag:"Gra"},
  {id:"survey", category:"surveys", icon:"📝", title:"Krótka ankieta", description:"Zobacz, jak będzie wyglądał przepływ ankiety.", reward:70, tag:"Ankieta"},
