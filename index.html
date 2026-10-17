@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <title>EarnZone — zdobywaj nagrody</title>
+  <meta name="description" content="EarnZone — demonstracyjna platforma z zadaniami i punktami.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="logo">E</span> Earn<span>Zone</span></a>
+    <nav><a href="#offers">Oferty</a><a href="#how">Jak działa</a><a href="#account">Konto</a></nav>
+    <button class="btn outline" id="loginBtn">Zaloguj się</button>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">TWOJA STREFA NAGRÓD</p>
+        <h1>Zarabiaj punkty<br>za swoje <span>aktywności.</span></h1>
+        <p class="sub">Wykonuj oferty, graj, wypełniaj ankiety i zbieraj punkty.</p>
+        <a class="btn" href="#offers">Zobacz oferty <span aria-hidden="true">→</span></a>
+        <p class="notice">Wersja demonstracyjna — punkty są fikcyjne i nie mają wartości pieniężnej.</p>
+      </div>
+      <div class="hero-card">
+        <div class="coin">✦</div><p class="muted">Twoje saldo demo</p><div class="balance"><span id="balance">0</span> <small>EZ</small></div>
+        <div class="progress"><span></span></div><p class="muted small">Ukończ zadanie, aby przetestować naliczanie punktów.</p>
+      </div>
+    </section>
+    <section class="section" id="offers">
+      <div class="section-head"><div><p class="eyebrow">ZACZNIJ ZARABIAĆ</p><h2>Przykładowe zadania</h2></div><span class="pill">DEMO</span></div>
+      <div class="filters" role="group" aria-label="Filtruj zadania">
+        <button class="filter active" data-filter="all">Wszystkie</button><button class="filter" data-filter="games">Gry</button><button class="filter" data-filter="surveys">Ankiety</button><button class="filter" data-filter="apps">Aplikacje</button>
+      </div>
+      <div class="offers" id="offerGrid"></div>
+    </section>
+    <section class="section" id="how">
+      <p class="eyebrow">PROSTO I PRZEJRZYŚCIE</p><h2>Jak działa EarnZone?</h2>
+      <div class="steps"><article><b>01</b><h3>Załóż konto</h3><p>W pełnej wersji konto będzie chronione bezpiecznym logowaniem.</p></article><article><b>02</b><h3>Wybierz zadanie</h3><p>Wykonuj zadania udostępnione przez zatwierdzonych partnerów.</p></article><article><b>03</b><h3>Zbieraj punkty</h3><p>Partner potwierdza ukończenie, a serwer zapisuje nagrodę.</p></article><article><b>04</b><h3>Odbierz nagrodę</h3><p>Wypłaty zostaną włączone po integracji i testach bezpieczeństwa.</p></article></div>
+    </section>
+    <section class="section account" id="account"><div><p class="eyebrow">PANEL TESTOWY</p><h2>Twoje konto</h2><p class="muted">To nie jest prawdziwe konto. Dane testowe są przechowywane tylko w tej przeglądarce.</p></div><div class="account-box"><span class="avatar">G</span><div><strong>Gość EarnZone</strong><p class="muted small">Tryb demonstracyjny</p></div><button class="btn outline" id="resetBtn">Resetuj demo</button></div></section>
+  </main>
+  <footer><a class="brand" href="#"><span class="logo">E</span> Earn<span>Zone</span></a><p>© <span id="year"></span> EarnZone. Projekt demonstracyjny.</p><div><a href="#how">Jak działa</a><a href="mailto:kontakt@example.com">Kontakt (uzupełnij)</a></div></footer>
+  <dialog id="demoDialog"><div class="dialog-inner"><button class="close" id="closeDialog" aria-label="Zamknij">×</button><p class="eyebrow">WCZESNY DOSTĘP</p><h2>Logowanie będzie dostępne w kolejnym etapie</h2><p class="muted">To demo nie zbiera haseł ani danych osobowych. Następny etap to prawdziwa autoryzacja i baza danych.</p><button class="btn" id="okDialog">Rozumiem</button></div></dialog>
+  <script src="app.js"></script>
+</body></html>
