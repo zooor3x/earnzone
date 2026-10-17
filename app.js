@@ -30,7 +30,37 @@ function render(filter="all"){
 }
 function updateBalance(){balance.textContent=offers.filter(o=>completed.has(o.id)).reduce((n,o)=>n+o.reward,0).toLocaleString("pl-PL");}
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render(b.dataset.filter);}));
-document.querySelector("#loginBtn").addEventListener("click",()=>dialog.showModal());
+document.querySelector("#loginBtn").addEventListener("click", async () => {
+  const email = prompt("Podaj swój adres e-mail:");
+  if (!email) return;
+
+  const password = prompt("Podaj hasło (minimum 6 znaków):");
+  if (!password) return;
+
+  if (password.length < 6) {
+    alert("Hasło musi mieć co najmniej 6 znaków.");
+    return;
+  }
+
+  const action = confirm(
+    "Wybierz OK, aby założyć konto.\nWybierz Anuluj, aby się zalogować."
+  );
+
+  const result = action
+    ? await supabaseClient.auth.signUp({ email, password })
+    : await supabaseClient.auth.signInWithPassword({ email, password });
+
+  if (result.error) {
+    alert("Błąd: " + result.error.message);
+    return;
+  }
+
+  alert(
+    action
+      ? "Rejestracja wysłana! Sprawdź pocztę, jeśli wymagane jest potwierdzenie e-maila."
+      : "Logowanie udane!"
+  );
+});
 document.querySelector("#closeDialog").addEventListener("click",()=>dialog.close());
 document.querySelector("#okDialog").addEventListener("click",()=>dialog.close());
 document.querySelector("#resetBtn").addEventListener("click",()=>{completed.clear();localStorage.removeItem(key);updateBalance();render();});
